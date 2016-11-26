@@ -1,5 +1,7 @@
 package strategyPattern;
 
 public interface DiscountStrategy {
-     double discount(double price);
+    double discount(double price);
+
+
 }

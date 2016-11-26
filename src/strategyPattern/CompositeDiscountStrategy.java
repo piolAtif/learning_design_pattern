@@ -3,7 +3,7 @@ package strategyPattern;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompositeDiscountStrategy implements DiscountStrategy{
+public class CompositeDiscountStrategy implements DiscountStrategy {
     private List<DiscountStrategy> strategies = new ArrayList<>();
 
     @Override
@@ -12,10 +12,10 @@ public class CompositeDiscountStrategy implements DiscountStrategy{
         for (DiscountStrategy strategy : this.strategies) {
             totalPrice += strategy.discount(price);
         }
-        return  totalPrice;
+        return totalPrice;
     }
 
-    public void addDiscountStrategy(DiscountStrategy discountStrategy){
+    public void addDiscountStrategy(DiscountStrategy discountStrategy) {
         strategies.add(discountStrategy);
     }
 }

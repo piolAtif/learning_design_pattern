@@ -1,25 +1,26 @@
 package strategyPattern;
 
+import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
-    private DiscountStrategy customerType;
+    private DiscountStrategy discountStrategy;
     private List<Item> items = new ArrayList<>();
 
-    public Customer(DiscountStrategy customerType) {
-        this.customerType = customerType;
+    public Customer(DiscountStrategy discountStrategy) {
+        this.discountStrategy = discountStrategy;
     }
 
-    public void add(String sweetCategory, double price, int quantity){
-        items.add(new Item(sweetCategory, price, quantity));
+    public void addItem(String item, double price, int quantity){
+        items.add(new Item(item, price,quantity));
     }
 
-    public double totalPrice() {
-        double total = 0;
+    public double totalBill() {
+        int totalPrice = 0;
         for (Item item : this.items) {
-          total += customerType.discount(item.getTotalPrice());
+            totalPrice += discountStrategy.discount(item.getTotalPrice());
         }
-        return  total;
+        return  totalPrice;
     }
 }
